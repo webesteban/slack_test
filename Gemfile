@@ -25,9 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'rabl-rails'
-gem 'rspec-rails'
-  gem 'shoulda-matchers'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,7 +40,7 @@ end
 
 
 group :development do
-	gem 'sqlite3'
+	
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
