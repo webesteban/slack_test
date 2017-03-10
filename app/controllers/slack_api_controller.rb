@@ -2,7 +2,9 @@ class SlackApiController < ApplicationController
 
 	
 	def command
-		render :text => "Always"
+
+
+		render :text => params[:channel_id]
   	end
 
 end
