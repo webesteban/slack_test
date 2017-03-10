@@ -1,5 +1,5 @@
 class SlackApiController < ApplicationController
-
+	respond_to?  :json
 	
 	def command
 
@@ -10,16 +10,30 @@ class SlackApiController < ApplicationController
 
   	def save_phone
 
-		response = "#{params[:channel_id]}/#{params[:channel_name]}/#{params[:channel_name]}"
+  		if Channel.exists?(id_channel: params[:channel_id])
 
-		render :text => response
+			channel = Channel.find_by id_channel: params[:channel_id]
+  			phone = Phone.new(channel: channel, phone: params[:text])
+			phone.save
+
+		else
+		  	channel = Channel.new(id_channel: params[:channel_id],name: params[:channel_name])		  	
+		  	channel.save
+  			phone = Phone.new(channel: channel, phone: params[:text])
+			phone.save
+
+		end
+
+		
+
+		render :text => "Save Phone!"
   	end
 
   	def list_phones
 
-		response = "#{params[:channel_id]}/#{params[:channel_name]}/#{params[:text]}"
+		@channels = Channel.all
 
-		render :text => response
+		#@phones = @channels.phones
   	end
 
 end
