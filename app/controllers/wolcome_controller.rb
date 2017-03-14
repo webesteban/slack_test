@@ -2,8 +2,8 @@ class WolcomeController < ApplicationController
   def index
   end
 
-  def response
-  	response = params
+  def register
+  	response = "#{params[:team_id]}/#{params[:channel_name]}/#{params[:channel_name]}"
 
 	render :text => response
   end
